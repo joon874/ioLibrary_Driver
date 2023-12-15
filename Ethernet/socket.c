@@ -82,7 +82,12 @@ uint8_t  sock_pack_info[_WIZCHIP_SOCK_NUM_] = {0,};
 
 #define CHECK_SOCKNUM()   \
    do{                    \
+//A20231215 
+#if 1
+      if(sn >= _WIZCHIP_SOCK_NUM_) return SOCKERR_SOCKNUM;   \
+#else
       if(sn > _WIZCHIP_SOCK_NUM_) return SOCKERR_SOCKNUM;   \
+#endif
    }while(0);             \
 
 #define CHECK_SOCKMODE(mode)  \
